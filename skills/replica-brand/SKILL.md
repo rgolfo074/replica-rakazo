@@ -10,6 +10,8 @@ description: >-
   /replica-entrepreneur. Always runs before /replica-launch.
 ---
 
+> **Rakazo import note:** The Python helpers in `extras/` are optional repository-only tools and are not included in the imported skill. When working only in Rakazo, follow the branding and token checks manually. Run these commands only from a local repository checkout.
+
 # replica-brand
 
 Nothing launches under the original's identity. This skill is the line
@@ -18,12 +20,12 @@ between "a clone" and "your app".
 Tool in this folder:
 
 ```bash
-python3 sweep.py . --avoid "Original Name,Its Company" --domains original.com --colors "#006bff"
-python3 sweep.py . --config replica/brand.json        # same, from the brand file
+python3 extras/replica-brand/sweep.py . --avoid "Original Name,Its Company" --domains original.com --colors "#006bff"
+python3 extras/replica-brand/sweep.py . --config replica/brand.json        # same, from the brand file
 ```
 
 Writes `replica/brand.md` and `replica/brand.json` (`avoid`, `domains`,
-`colors`, used by `sweep.py`, `listing.py` and replica-deploy).
+`colors`, used by `extras/replica-brand/sweep.py`, `extras/replica-launch/listing.py` and replica-deploy).
 
 ## Step 1: the name
 
@@ -63,7 +65,7 @@ Pick a primary brand hue from a different family than the original's (if
 theirs is blue, yours is not a nearby blue). Then:
 
 ```bash
-python3 ../replica-design/contrast.py replica/design/tokens.json
+python3 extras/replica-design/contrast.py replica/design/tokens.json
 ```
 
 Zero AA failures. Add the original's brand colours to `brand.json` so the
@@ -94,7 +96,7 @@ error) in that voice. All fresh, none echoing the original's phrasing.
 Replace every placeholder name, colour and string. Then:
 
 ```bash
-python3 sweep.py . --config replica/brand.json
+python3 extras/replica-brand/sweep.py . --config replica/brand.json
 ```
 
 It searches file contents and file names for the original's name (also inside

@@ -10,6 +10,8 @@ description: >-
   "publish the app", or after /replica-launch.
 ---
 
+> **Rakazo import note:** Scripts under `extras/` require a local checkout of the source repository and are not included in the imported skills. When working only in Rakazo, perform the corresponding preflight checks manually.
+
 # replica-deploy
 
 Reads everything in `replica/`. Writes `replica/deploy.md` (the checklist in
@@ -30,14 +32,14 @@ Run every check and paste the results into `deploy.md`:
 
 ```bash
 npx playwright test                                                  # replica-test
-python3 ../replica-diff/parity.py replica/features.csv               # must-haves done
-python3 ../replica-brand/sweep.py . --config replica/brand.json      # exit 0: clean
-python3 ../replica-launch/listing.py replica/launch/listing.json     # if shipping to stores
+python3 extras/replica-diff/parity.py replica/features.csv               # must-haves done
+python3 extras/replica-brand/sweep.py . --config replica/brand.json      # exit 0: clean
+python3 extras/replica-launch/listing.py replica/launch/listing.json     # if shipping to stores
 npm run build                                                        # production build passes
 ```
 
 (Paths are relative to wherever the pack is installed. Under
-`~/.claude/skills/` that is `~/.claude/skills/replica-diff/parity.py` and so
+`~/.claude/skills/` that is `extras/replica-diff/parity.py` and so
 on.)
 
 Plus by hand: no open S1 or S2 bugs, privacy policy and terms pages live

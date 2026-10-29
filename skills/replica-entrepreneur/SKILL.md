@@ -11,6 +11,8 @@ description: >-
   "how do I position this", "make it sellable", or after /replica-diff.
 ---
 
+> **Rakazo import note:** The review-processing helper in `extras/` is not included in the imported skill. When working only in Rakazo, inspect and summarise reviews manually. Run example commands only from a local repository checkout.
+
 # replica-entrepreneur
 
 A straight copy of an app has no reason to exist. This skill finds the reason:
@@ -19,7 +21,7 @@ what the original's users hate, in their own words, and fixes it in yours.
 Tool in this folder:
 
 ```bash
-python3 reviews.py replica/reviews.csv --out replica/feedback.md
+python3 extras/replica-entrepreneur/reviews.py replica/reviews.csv --out replica/feedback.md
 ```
 
 ## The rules, which are not negotiable
@@ -28,7 +30,7 @@ python3 reviews.py replica/reviews.csv --out replica/feedback.md
   sources. If a source cannot be reached, say so and move on. If there are 14
   reviews, say 14.
 - **Every quote is verbatim and linked.** Copied exactly from the page, with
-  the URL of the review or thread. `reviews.py` drops any row without a link.
+  the URL of the review or thread. `extras/replica-entrepreneur/reviews.py` drops any row without a link.
 - **Reading, not scraping.** Read review pages the way a person does, in the
   browser, and copy rows into the sheet. No scraping libraries against stores
   or review sites whose terms forbid it. Official public feeds and APIs are
@@ -62,7 +64,7 @@ best fixes hide.
 ## Step 2: rank
 
 ```bash
-python3 reviews.py replica/reviews.csv --out replica/feedback.md
+python3 extras/replica-entrepreneur/reviews.py replica/reviews.csv --out replica/feedback.md
 ```
 
 It sorts reviews into themes (`themes.json`, edit it for the app's category),

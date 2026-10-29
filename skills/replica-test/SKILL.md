@@ -10,11 +10,13 @@ description: >-
   /replica-backend.
 ---
 
+> **Rakazo import note:** The Playwright example at `extras/replica-test/e2e.example.spec.ts` is retained in the source repository but is not included in the imported skill. Use it as a reference when creating an equivalent test in your project.
+
 # replica-test
 
 Reads the flows in `replica/recon.md`. Writes `replica/test-plan.md`,
 `replica/bugs.md`, and end-to-end tests in the project (`e2e/`). Templates in
-this folder: `test-plan.md`, `bug-report.md`, `e2e.example.spec.ts`.
+this folder: `test-plan.md`, `bug-report.md`, `extras/replica-test/e2e.example.spec.ts`.
 
 ## The rule
 
@@ -42,7 +44,7 @@ Number every case: F01-H1, F01-E3, F01-N2.
 
 Playwright, one spec per flow, against the local dev server with seed data.
 Use roles and labels for selectors (`getByRole('button', { name: 'Book' })`),
-never CSS classes. See `e2e.example.spec.ts`.
+never CSS classes. See `extras/replica-test/e2e.example.spec.ts`.
 
 ```bash
 npm i -D @playwright/test && npx playwright install chromium

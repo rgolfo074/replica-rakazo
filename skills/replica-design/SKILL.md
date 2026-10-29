@@ -10,6 +10,8 @@ description: >-
   for my clone", or after /replica-architect.
 ---
 
+> **Rakazo import note:** The contrast-checking helper in `extras/` is not included in the imported skill. When working only in Rakazo, assess contrast manually or use another available checker. Run example commands only from a local repository checkout.
+
 # replica-design
 
 Reads `replica/recon.md` and the screenshots in `replica/screens/`. Writes
@@ -17,7 +19,7 @@ Reads `replica/recon.md` and the screenshots in `replica/screens/`. Writes
 Tailwind mapping, and `replica/design/components.md`.
 
 ```bash
-python3 contrast.py replica/design/tokens.json     # every text pair, WCAG ratio
+python3 extras/replica-design/contrast.py replica/design/tokens.json     # every text pair, WCAG ratio
 ```
 
 ## The rules
@@ -60,7 +62,7 @@ Add a `pairs` list for every text and background combination the app uses,
 then:
 
 ```bash
-python3 contrast.py replica/design/tokens.json
+python3 extras/replica-design/contrast.py replica/design/tokens.json
 ```
 
 AA is the floor: 4.5:1 for body text, 3:1 for large text and for input
