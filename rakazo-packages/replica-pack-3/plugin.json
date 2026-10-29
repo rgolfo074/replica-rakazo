@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.1.0/plugin.schema.json",
+  "name": "replica-pack-3",
+  "description": "Replica skills pack: replica-entrepreneur, replica-launch, replica-deploy.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Joel"
+  },
+  "license": "MIT",
+  "skills": "./"
+}
